@@ -32,3 +32,12 @@ class SeparableConv2d(nn.Module):
         x = self.pointwise(x)
         return x
 ```
+Pointwise Convolution
+ 
+Pointwise Convolution is a type of convolution that uses a 1x1 kernel:
+a kernel that iterates through every single point. 
+This kernel has a depth of however many channels the input image has. 
+It can be used in conjunction with depthwise convolutions to produce an efficient class of convolutions known as
+depthwise-separable convolutions.
+pointwise 卷积是一种卷积核为1x1的,卷积核的深度和输入深度一样的,是深度可分离卷积的组成部分.
+![image](https://user-images.githubusercontent.com/84374554/135944572-cd1b45b8-c41f-45b0-b690-f5c6869dca50.png)
