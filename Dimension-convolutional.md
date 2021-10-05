@@ -138,3 +138,10 @@ class DICE(nn.Module):
             'width={width}, height={height}, dilation={dilation})'
         return s.format(name=self.__class__.__name__, **self.__dict__)
    ```
+   self.conv_channel = nn.Conv2d(channel_in, channel_in, kernel_size=kernel_size, stride=1, groups=channel_in,
+                                      padding=padding_1, bias=False, dilation=dilation[0])
+   self.conv_width = nn.Conv2d(width, width, kernel_size=kernel_size, stride=1, groups=width,
+                               padding=padding_2, bias=False, dilation=dilation[1])
+   self.conv_height = nn.Conv2d(height, height, kernel_size=kernel_size, stride=1, groups=height,
+                               padding=padding_3, bias=False, dilation=dilation[2])
+    关键代码就上面的三个部分,首先根据需要转置,之后根据输出大小设置三个卷积,这三个卷积分别为,卷积核都为3的大小,之后设置不同的卷积核深度,也就是groups大小,
